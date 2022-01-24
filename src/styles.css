@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background: #fbebeb;
+}
+
+.card {
+    box-shadow: 2px 2px 40px #a5a0a0;
+    border: none;
+    transition: box-shadow 0.5s ease-in;
+}
+
+.card:hover {
+    box-shadow: 3px 3px 80px #000;
+    transition: box-shadow 0.5s ease-in;
+}

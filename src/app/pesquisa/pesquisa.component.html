@@ -1,0 +1,46 @@
+<div class="shadowLeftToRight" [@background]="estadoMenu" (click)="resetShadow()"></div>
+<div class="pesquisa" [@estadoMenu]="estadoMenu">
+  
+    <form [formGroup]="frmPesquisa">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Nome</label>
+            <select class="form-select" 
+                formControlName="id">
+                <option selected>Selecione</option>
+                <option [value]="p.id" *ngFor="let p of participantes"> {{ p.nome }}</option>
+                <!-- <option value="2">Two</option> -->
+                <!-- <option value="3">Three</option> -->
+            </select>
+        </div>
+        <!-- <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Idade</label>
+            <input type="number" class="form-control" id="exampleInputPassword1">
+        </div> -->
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">UF</label>
+            <select class="form-select" 
+                formControlName="uf">
+                <option selected>Selecione</option>
+                <option [value]="uf" *ngFor="let uf of ufs">{{ uf }}</option>
+                <!-- <option value="2">Two</option> -->
+                <!-- <option value="3">Three</option> -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <select class="form-select" formControlName="status">
+                <option selected>Open this select menu</option>
+                <option value="1">No Jogo</option>
+                <option value="2">Paredão</option>
+                <option value="3">Eliminado</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-danger" (click)="resetShadow()">Fechar</button>
+            <button class="btn btn-primary mx-2" (click)="filtrar()">Pesquisar</button>
+        </div>        
+    </form>
+
+   
+
+</div>

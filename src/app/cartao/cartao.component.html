@@ -1,0 +1,38 @@
+<div class="card mb-5" *ngIf="participante">
+    <img src="/assets/fotos/{{participante.img}}"
+        style="height: 234px; object-fit: cover;" 
+        [ngClass]="{'eliminado': participante.status == 3}"
+        class="card-img-top" [alt]="participante.nome">
+    <div class="card-body">
+        <h5 class="card-title" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.nome}}</h5>
+        <p class="card-text mb-0" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.idade}} anos</p>
+        <p class="card-text mb-0" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.cidade}}, {{participante.uf}}</p>
+        <p class="card-text">Status: </p>
+
+        <div class="d-flex justify-content-center">
+
+            <button class="btn btn-warning" 
+            (click)="adicionaParedao(participante.id)"
+            *ngIf="participante.status == 1"
+            >Paredão</button>
+
+            <button class="btn btn-success" 
+            (click)="desfazer(participante.id)"
+            *ngIf="participante.status == 3"
+            >Desfazer</button>
+
+            <button class="btn btn-success" 
+            (click)="desfazer(participante.id)"
+            *ngIf="participante.status == 2"
+            >Volta ao jogo</button>
+
+            <button class="btn btn-danger mx-2" 
+                *ngIf="participante.status == 1 || participante.status == 2"
+                (click)="eliminar(participante.id)">
+                Eliminar
+            </button>
+
+        </div>
+
+    </div>
+</div>

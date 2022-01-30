@@ -1,3 +1,14 @@
 .eliminado {
     filter: grayscale(100%);
 }
+
+.foto-participante {
+    height: 234px; 
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .foto-participante {
+        object-fit: contain;
+    }
+}

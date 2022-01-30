@@ -63,7 +63,6 @@ export class PesquisaComponent implements OnInit {
   }
 
   filtrar() {
-    debugger;
     const filtroPorStatus = new FiltroPorStatus(this.frmPesquisa.get('status')?.value);
     const filtroPorUF = new FiltroPorUF(this.frmPesquisa.get('uf')?.value);
     const filtroPorId = new FiltroPorId(this.frmPesquisa.get('id')?.value);

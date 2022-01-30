@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
 
   atualizaParticipantes(e: any) {
     this.participantesExibir = (e as Participante[]);
+    this.fecharPesquisa();
   }
 
   atualizaParedao(id: Number) {
@@ -49,9 +50,11 @@ export class AppComponent implements OnInit {
   }
 
   private atualizaStatusParticipante(status: Number, id: Number) {
-    const indice = this.participantes.findIndex(x => x.id === id)
+    let indice = this.participantes.findIndex(x => x.id === id);
     this.participantes[indice].status = status;
-    this.participantesExibir = this.participantes;
+    
+    indice = this.participantesExibir.findIndex(x => x.id === id);
+    this.participantesExibir[indice].status = status;
     this.salvarParticipantes();
   }
 

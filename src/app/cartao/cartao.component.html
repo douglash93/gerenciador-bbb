@@ -1,8 +1,7 @@
 <div class="card mb-5" *ngIf="participante">
-    <img src="/assets/fotos/{{participante.img}}"
-        style="height: 234px; object-fit: cover;" 
+    <img src="assets/fotos/{{participante.img}}"
         [ngClass]="{'eliminado': participante.status == 3}"
-        class="card-img-top" [alt]="participante.nome">
+        class="card-img-top foto-participante" [alt]="participante.nome">
     <div class="card-body">
         <h5 class="card-title" 
             [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >

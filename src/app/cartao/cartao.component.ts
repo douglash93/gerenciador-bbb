@@ -18,16 +18,29 @@ export class CartaoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  adicionaParedao(id: number) {
+  adicionaParedao(id: Number) {
     this.adicionaParedaoEvent.emit(id);
   }
 
-  eliminar(id: number) {
+  eliminar(id: Number) {
     this.eliminaEvent.emit(id);
   }
 
-  desfazer(id: number) {
+  desfazer(id: Number) {
     this.desfazerEvent.emit(id);
+  }
+
+  get status(): string {
+    switch (this.participante?.status) {
+      case 1: 
+        return 'No jogo';
+      case 2: 
+        return 'No paredão';
+      case 3:
+        return 'Eliminado(a)';
+      default:
+        return 'Desconhecido'
+    }
   }
 
 }

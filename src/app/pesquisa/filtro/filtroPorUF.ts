@@ -1,9 +1,9 @@
 import { Participante } from "src/app/cartao/participante.model";
-import { IFiltrar } from "./ifiltro";
+import { FiltroInterface } from "./filtro.interface";
 
-export class FiltroPorUF implements IFiltrar {
+export class FiltroPorUF implements FiltroInterface {
 
-    proximo?: IFiltrar
+    proximo?: FiltroInterface
 
     constructor(
         private uf: string,

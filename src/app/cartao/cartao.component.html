@@ -4,10 +4,21 @@
         [ngClass]="{'eliminado': participante.status == 3}"
         class="card-img-top" [alt]="participante.nome">
     <div class="card-body">
-        <h5 class="card-title" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.nome}}</h5>
-        <p class="card-text mb-0" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.idade}} anos</p>
-        <p class="card-text mb-0" [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >{{participante.cidade}}, {{participante.uf}}</p>
-        <p class="card-text">Status: </p>
+        <h5 class="card-title" 
+            [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >
+            {{participante.nome}}
+        </h5>
+        <p class="card-text mb-0" 
+            [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >
+            {{participante.idade}} anos
+        </p>
+        <p class="card-text mb-0" 
+            [ngStyle]="{'text-decoration': participante.status == 3 ? 'line-through' : ''}" >
+            {{participante.cidade}}, {{participante.uf}}
+        </p>
+        <p class="card-text">Status: 
+            <span class="badge bg-secondary fw-light">{{status}}</span>
+        </p>
 
         <div class="d-flex justify-content-center">
 

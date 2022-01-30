@@ -1,9 +1,9 @@
 export class Participante {
-    id: number = 0;
+    id: Number = 0;
     nome: string = '';
     img: string = '';
-    idade: number = 0;
+    idade: Number = 0;
     cidade: string = '';
     uf: string = '';
-    status: number = 0;
+    status: Number = 0;
 }

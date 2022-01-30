@@ -11,10 +11,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './pesquisa.component.html',
   styleUrls: ['./pesquisa.component.css'],
   animations: [
-    trigger('estadoMenu', [
+    trigger('estadoPesquisa', [
       state('fechado', style({
         transform: 'translate(100%, 0%)',
-        // left: '60px'
       })),
       state('aberto', style({
         transform: 'translate(0%, 0%)',
@@ -39,9 +38,9 @@ export class PesquisaComponent implements OnInit {
   frmPesquisa: FormGroup = new FormGroup({});
   ufs: String[] = [];
 
-  @Input() estadoMenu: string = 'fechado';
+  @Input() estadoPesquisa: string = 'fechado';
   @Input() participantes: Participante[] = []; 
-  @Output() fecharMenuEvent = new EventEmitter();
+  @Output() fecharPesquisaEvent = new EventEmitter();
   @Output() atualizaListaParticipantesEvent = new EventEmitter<Participante[]>();
 
   constructor(
@@ -56,12 +55,11 @@ export class PesquisaComponent implements OnInit {
     });
 
     const ufs = this.participantes.map(x => x.uf);
-    // this.ufs = ufs;
     this.ufs = Array.from(new Set(ufs));
   }
 
-  resetShadow() {
-    this.fecharMenuEvent.emit();
+  fechar() {
+    this.fecharPesquisaEvent.emit();
   }
 
   filtrar() {

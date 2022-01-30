@@ -10,47 +10,59 @@ import { Participante } from './cartao/participante.model';
 })
 export class AppComponent implements OnInit { 
   
-  estadoMenu = 'fechado';
+  estadoPesquisa = 'fechado';
   participantes: Participante[] = [];
-  participantes2: Participante[] = [];
+  participantesExibir: Participante[] = [];
 
   ngOnInit(): void {
     this.participantes = environment.participantes;
-    this.participantes2 = environment.participantes;
+    this.participantesExibir = environment.participantes;
+    this.recuperarParticipantesLocalStorage();
   }
 
   abrirMenu() {
-    this.estadoMenu = 'aberto';
+    this.estadoPesquisa = 'aberto';
   }
 
-  fecharMenu() {
-    this.estadoMenu = 'fechado'
+  fecharPesquisa() {
+    this.estadoPesquisa = 'fechado'
   }
 
   limparFiltro() {
-    this.participantes2 = environment.participantes;
+    this.participantesExibir = environment.participantes;
   }
 
   atualizaParticipantes(e: any) {
-    this.participantes2 = (e as Participante[]);
+    this.participantesExibir = (e as Participante[]);
   }
 
   atualizaParedao(id: Number) {
-    const indice = this.participantes.findIndex(x => x.id === id)
-    this.participantes[indice].status = 2;
-    this.participantes2 = this.participantes;
+    this.atualizaStatusParticipante(2, id);
   }
 
   atualizaEliminado(id: Number) {
-    const indice = this.participantes.findIndex(x => x.id === id)
-    this.participantes[indice].status = 3;
-    this.participantes2 = this.participantes;
+    this.atualizaStatusParticipante(3, id);
   }
 
   desfazer(id: Number) {
-    const indice = this.participantes.findIndex(x => x.id === id)
-    this.participantes[indice].status = 1;
-    this.participantes2 = this.participantes;
+    this.atualizaStatusParticipante(1, id);
   }
 
+  private atualizaStatusParticipante(status: Number, id: Number) {
+    const indice = this.participantes.findIndex(x => x.id === id)
+    this.participantes[indice].status = status;
+    this.participantesExibir = this.participantes;
+    this.salvarParticipantes();
+  }
+
+  private salvarParticipantes() {
+    localStorage.setItem('bbb', JSON.stringify(this.participantes));
+  }
+
+  private recuperarParticipantesLocalStorage() {
+    const participantes = localStorage.getItem('bbb');
+    if (participantes) {
+      this.participantesExibir = JSON.parse(participantes);
+    }
+  }
 }

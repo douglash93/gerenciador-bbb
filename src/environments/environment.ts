@@ -8,7 +8,7 @@ export const environment = {
       idade: 32,
       cidade: 'Rio De Janeiro',
       uf: 'RJ',
-      status: 2
+      status: 1
     },
     {
       id: 2,

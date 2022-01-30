@@ -12,9 +12,9 @@ export class FiltroPorId implements FiltroInterface {
     
     filtrar(participantes: Participante[]): Participante[] {
 
-        debugger;
         if(this.id > 0) {
-            participantes = participantes.filter(x => x.id === Number(this.id));
+            participantes = 
+                participantes.filter(x => x.id === Number(this.id));
         }
 
         if(!this.proximo) {

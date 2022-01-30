@@ -13,7 +13,8 @@ export class FiltroPorStatus implements FiltroInterface {
     filtrar(participantes: Participante[]): Participante[] {
 
         if(this.status > 0) {
-            participantes = participantes.filter(x => x.status === Number(this.status));
+            participantes = 
+                participantes.filter(x => x.status === Number(this.status));
         }
 
         if(!this.proximo) {

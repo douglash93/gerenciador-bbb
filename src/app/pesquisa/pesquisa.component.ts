@@ -34,7 +34,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PesquisaComponent implements OnInit {
 
-  animeSearch = 'off';
   frmPesquisa: FormGroup = new FormGroup({});
   ufs: String[] = [];
 
@@ -70,6 +69,7 @@ export class PesquisaComponent implements OnInit {
     filtroPorStatus.proximo = filtroPorUF;
     filtroPorUF.proximo = filtroPorId;
     
+    this.frmPesquisa.reset();
     const participantesFiltrados = filtroPorStatus.filtrar(this.participantes);
     this.atualizaListaParticipantesEvent.emit(participantesFiltrados);
   }

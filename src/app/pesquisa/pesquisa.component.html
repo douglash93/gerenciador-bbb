@@ -3,36 +3,38 @@
   
     <form [formGroup]="frmPesquisa">
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Nome</label>
+            <label for="exampleInputPassword1" 
+                class="form-label">Nome</label>
             <select class="form-select" 
                 formControlName="id">
-                <option selected>Selecione</option>
-                <option [value]="p.id" *ngFor="let p of participantes"> {{ p.nome }}</option>
+                <option value="" selected>Selecione</option>
+                <option [value]="p.id" 
+                    *ngFor="let p of participantes"> {{ p.nome }}</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">UF</label>
             <select class="form-select" 
                 formControlName="uf">
-                <option selected>Selecione</option>
+                <option value="" selected>Selecione</option>
                 <option [value]="uf" *ngFor="let uf of ufs">{{ uf }}</option>
             </select>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <label for="exampleInputPassword1" 
+                class="form-label">Status</label>
             <select class="form-select" formControlName="status">
-                <option selected>Selecione</option>
+                <option value="" selected>Selecione</option>
                 <option value="1">No Jogo</option>
                 <option value="2">Paredão</option>
                 <option value="3">Eliminado</option>
             </select>
         </div>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-outline-danger" (click)="fechar()">Fechar</button>
-            <button class="btn btn-primary mx-2" (click)="filtrar()">Pesquisar</button>
+            <button class="btn btn-outline-danger" 
+                (click)="fechar()">Fechar</button>
+            <button class="btn btn-primary mx-2" 
+                (click)="filtrar()">Pesquisar</button>
         </div>        
     </form>
-
-   
-
 </div>

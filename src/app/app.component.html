@@ -14,7 +14,7 @@
     (fecharPesquisaEvent)="fecharPesquisa()"
     (atualizaListaParticipantesEvent)="atualizaParticipantes($event)"
   ></app-pesquisa>
-  <div class="row">
+  <div class="row" *ngIf="participantesExibir.length > 0; else nenhumResultado;">
     <div class="col-md-3" *ngFor="let participante of participantesExibir">
       <app-cartao 
         [participante]="participante"
@@ -24,4 +24,11 @@
       ></app-cartao>
     </div>    
   </div>
+  <ng-template #nenhumResultado>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center">
+        <h2>Nenhum resultado encontrado :(</h2>
+      </div>    
+    </div>
+  </ng-template>
 </div>
